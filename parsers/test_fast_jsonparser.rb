@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'yajl'
+require 'fast_jsonparser'
 
 f = ARGV[0]
 
@@ -9,8 +9,7 @@ o = nil
 begin
     puts(f)
     json = File.read(f)
-    parser = Yajl::Parser.new
-    o = parser.parse( json )
+    o = FastJsonparser.parse( json )
     p o
 
     exit 0

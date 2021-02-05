@@ -1,16 +1,17 @@
 #!/usr/bin/env ruby
 
-require 'yajl'
+require 'oj'
 
 f = ARGV[0]
 
 o = nil
 
+Oj.default_options = { :mode => :rails }
+
 begin
     puts(f)
     json = File.read(f)
-    parser = Yajl::Parser.new
-    o = parser.parse( json )
+    o = Oj.load( json )
     p o
 
     exit 0

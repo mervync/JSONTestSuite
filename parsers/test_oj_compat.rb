@@ -13,13 +13,9 @@ begin
     json = File.read(f)
     o = Oj.load( json )
     p o
-    
-    if o == nil
-        exit 1
-    else
-        exit 0
-    end
-rescue Oj::ParserError => e
+
+    exit 0
+rescue StandardError => e
     puts(e)
     exit 1
 end

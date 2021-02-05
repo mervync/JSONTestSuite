@@ -11,12 +11,8 @@ begin
     json = File.read(f)
     o = JSON.parse(json, {:quirks_mode => true})
     p o
-    
-    if o == nil
-        exit 1
-    else
-        exit 0
-    end
+
+    exit 0
 rescue JSON::ParserError => e
     puts(e)
     exit 1
